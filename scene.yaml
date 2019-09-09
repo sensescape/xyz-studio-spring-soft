@@ -279,8 +279,7 @@ layers:
                     color: [0.884,0.911,0.940]
 
         water-boundary-ocean:
-            enabled: global.sdk_coastline
-            filter: { boundary: true, kind: ocean, $zoom: { min: 1 } }
+            filter: { boundary: true, kind: ocean, $zoom: { min: 13 } }
             draw:
                 lines:
                     visible: true
@@ -290,7 +289,6 @@ layers:
                     join: round
 
         water_boundaries-not-ocean:
-            enabled: global.sdk_coastline
             filter:
                 all:
                     - boundary: true
