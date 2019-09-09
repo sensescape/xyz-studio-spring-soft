@@ -15,7 +15,7 @@ global:
     # https://mapzen.com/documentation/overview/#developer-accounts-and-api-keys
     sdk_api_key: '3eqm2_bfTNGZ85ar20fVyA'     # set this value to your Mapzen API key
 
-    black_color:                  [0.761,0.596,0.471]
+    black_color:                  [0.800,0.745,0.729]
     dark_color:                   [0.800,0.646,0.528]
     mid_color:                    [0.820,0.671,0.558]
     midlight_color:               [0.850,0.706,0.595]
@@ -235,7 +235,7 @@ layers:
         draw:
             polygons:
                 order: global.feature_order
-                color: [0.537,0.847,0.961]
+                color: [0.800,0.894,0.890]
 
         lakes:
             filter:
@@ -261,13 +261,13 @@ layers:
                     - { $zoom: { min: 15 } }
             draw:
                 polygons:
-                    color: [0.537,0.847,0.961]
+                    color: [0.800,0.894,0.890]
 
         other-water-areas:
             filter: { not: { kind: [ocean, lake, water, reservoir] }, $zoom: { min: 11 }, area: { min: 100 } }
             draw:
                 polygons:
-                    color: [0.537,0.847,0.961]
+                    color: [0.800,0.894,0.890]
 
         playas:
             filter: { kind: playa }
@@ -285,7 +285,7 @@ layers:
                 lines:
                     visible: true
                     order: global.feature_order
-                    color: [0.400,0.608,0.831]
+                    color: [0.710,0.784,0.871]
                     width: 1px
                     join: round
 
@@ -318,7 +318,7 @@ layers:
                 lines:
                     visible: true
                     order: global.feature_order
-                    color: [0.400,0.608,0.831]
+                    color: [0.710,0.784,0.871]
                     width: [[6, 0.75px], [10, 1px]]
                     join: round
             swimming-pools-early:
@@ -332,7 +332,7 @@ layers:
                 draw:
                     lines:
                         visible: true
-                        color: [0.400,0.608,0.831]
+                        color: [0.710,0.784,0.871]
                         width: [[9, 0.5px], [15, 1px]]
         river:
             #river center lines, not boundaries for polygons
@@ -341,7 +341,7 @@ layers:
                 lines:
                     visible: true
                     order: global.feature_order_down_1
-                    color: [0.400,0.608,0.831]
+                    color: [0.710,0.784,0.871]
                     width: [[11, 0.5px], [17, 1px]]
                     cap: round
             intermittent:
@@ -351,7 +351,7 @@ layers:
                         - kind: drain
                 draw:
                     lines:
-                        color: [0.400,0.608,0.831]
+                        color: [0.710,0.784,0.871]
 
     roads:
         data: { source: mapzen, layer: roads }
@@ -406,8 +406,8 @@ layers:
             filter: { kind: highway, $zoom: { min: 8 } }
             draw:
                 lines:
-                    color: [1.000,0.643,0.369]
-                    width: 2px
+                    color: [0.941,0.682,0.404]
+                    width: [[8, 1px], [17, 2px]]
             link:
                 filter: { is_link: true } # on- and off-ramps, etc
                 draw:
@@ -443,7 +443,7 @@ layers:
                     filter: { ref: true }
                     draw:
                         lines:
-                            color: global.black_color
+                            color: [0.941,0.682,0.404]
                     labels-trunk_primary-route-z14:
                         filter: { $zoom: { min: 14 } }
                         draw:
@@ -579,11 +579,9 @@ layers:
             filter: { kind: aeroway, kind_detail: [runway,taxiway] }
             draw:
                 lines:
-                    color: global.mid_color
+                    color: [0.961,0.749,0.796]
                     cap: butt
                     width: [[10, 1px], [13, 3px], [15, 16px], [17, 60m]]
-                    outline:
-                        color: global.white_color
             # Features come in at zoom 9, but include mostly minor airports without POIs until z13
             early:
                 filter: { $zoom: { max: 12 }, not: { landuse_kind: [aerodrome, runway, taxiway] } }
@@ -599,11 +597,8 @@ layers:
                 filter: { kind_detail: taxiway }
                 draw:
                     lines:
-                        color: global.lighter_color
-                        width: [[14, 1px], [16, 6px], [18, 4m]]
-                        outline:
-                            width: 0.5px
-                            color: global.white_color
+                        color: [0.800,0.745,0.729]
+                        width: 1px
                 early:
                     filter: { $zoom: { max: 13 } }
                     draw:
@@ -631,12 +626,12 @@ layers:
                     - protect_class: ['2','3','5']
             draw:
                 polygons:
-                    color: [0.671,0.910,0.518]
+                    color: [0.902,0.941,0.820]
                     visible: true
                 outline:
                     style: lines
                     order: global.feature_order
-                    color: [0.400,0.608,0.831]
+                    color: [0.792,0.859,0.686]
                     width: [[7, 1px], [15, 1px], [16, 2px]]
             us_national_park:
                 # yosemite national park, death valley national park, grand canyon national park
@@ -646,12 +641,12 @@ layers:
                         - protect_class: ['2','3','5']
                 draw:
                     polygons:
-                        color: [0.671,0.910,0.518]
+                        color: [0.902,0.941,0.820]
                         visible: true
                     outline:
                         style: lines
                         order: global.feature_order
-                        color: [0.400,0.608,0.831]
+                        color: [0.792,0.859,0.686]
                         width: [[7, 1px], [15, 1px], [16, 2px]]
 
         conservation:
@@ -661,12 +656,12 @@ layers:
                 not: { protect_class: ['2','3','5']}
             draw:
                 polygons:
-                    color: [0.686,0.878,0.643]
+                    color: [0.898,0.933,0.871]
                     visible: true
                 outline:
                     style: lines
                     order: global.feature_order
-                    color: [0.400,0.608,0.831]
+                    color: [0.690,0.812,0.784]
                     width: [[7, 1px], [15, 1px], [16, 2px]]
         national_forest_level_6:
             filter:
@@ -677,24 +672,24 @@ layers:
                     - operator: ['United States Forest Service']
             draw:
                 polygons:
-                    color: [0.631,0.859,0.518]
+                    color: [0.898,0.933,0.871]
                     visible: true
                 outline:
                     style: lines
                     order: global.feature_order
-                    color: [0.400,0.608,0.831]
+                    color: [0.690,0.812,0.784]
                     width: [[7, 1px], [15, 1px], [16, 2px]]
 
         forest-landcover:
             filter: { kind: [forest, natural_forest, wood, natural_wood, natural_park], $zoom: { min: 10 }, not: { operator: "United States Forest Service" } }
             draw:
                 polygons:
-                    color: [0.631,0.859,0.518]
+                    color: [0.898,0.933,0.871]
                     visible: true
                 outline:
                     style: lines
                     order: global.feature_order
-                    color: [0.400,0.608,0.831]
+                    color: [0.690,0.812,0.784]
                     width: [[7, 1px], [15, 1px], [16, 2px]]
 
         parks-and-national-forests-not-national-park:
@@ -708,12 +703,12 @@ layers:
             # default for national forests and more?
             draw:
                 polygons:
-                    color: [0.757,0.878,0.494]
+                    color: [0.890,0.933,0.875]
                     visible: true
                 outline:
                     style: lines
                     order: global.feature_order
-                    color: [0.400,0.608,0.831]
+                    color: [0.745,0.859,0.835]
                     width: [[7, 1px], [15, 1px], [16, 2px]]
             national_park:
                 #filter: function() { return feature.name && (feature.name.indexOf('National Park') > -1); }
@@ -723,12 +718,12 @@ layers:
                         - not: [ protect_class: ['2','3','5','6'], operator: [ "United States National Park Service"] ]
                 draw:
                     polygons:
-                        color: [0.757,0.878,0.494]
+                        color: [0.890,0.933,0.875]
                         visible: true
                     outline:
                         style: lines
                         order: global.feature_order
-                        color: [0.400,0.608,0.831]
+                        color: [0.745,0.859,0.835]
                         width: [[7, 1px], [15, 1px], [16, 2px]]
 
         university:
@@ -736,25 +731,12 @@ layers:
                 kind: [university, college]
             draw:
                 polygons:
-                    color: [1.000,0.827,0.600]
+                    color: [0.949,0.925,0.800]
                     visible: true
                 outline:
                     style: lines
                     order: global.feature_order
-                    color: [0.400,0.608,0.831]
-                    width: [[7, 1px], [15, 1px], [16, 2px]]
-
-        cemetery:
-            filter:
-                kind: cemetery
-            draw:
-                polygons:
-                    color: [0.855,0.906,0.753]
-                    visible: true
-                outline:
-                    style: lines
-                    order: global.feature_order
-                    color: [0.400,0.608,0.831]
+                    color: [0.949,0.890,0.659]
                     width: [[7, 1px], [15, 1px], [16, 2px]]
 
         golf_course:
@@ -762,12 +744,12 @@ layers:
                 kind: golf_course
             draw:
                 polygons:
-                    color: [0.706,0.878,0.439]
+                    color: [0.859,0.918,0.863]
                     visible: true
                 outline:
                     style: lines
                     order: global.feature_order
-                    color: [0.400,0.608,0.831]
+                    color: [0.639,0.831,0.839]
                     width: [[7, 1px], [15, 1px], [16, 2px]]
 
         hospital:
@@ -775,12 +757,12 @@ layers:
                 kind: hospital
             draw:
                 polygons:
-                    color: [0.933,0.835,0.961]
+                    color: [0.937,0.882,0.800]
                     visible: true
                 outline:
                     style: lines
                     order: global.feature_order
-                    color: [0.400,0.608,0.831]
+                    color: [0.969,0.788,0.729]
                     width: [[7, 1px], [15, 1px], [16, 2px]]
 
         zoo:
@@ -788,12 +770,12 @@ layers:
                 kind: [zoo, wildlife_park]
             draw:
                 polygons:
-                    color: [0.886,0.941,0.667]
+                    color: [0.910,0.945,0.812]
                     visible: true
                 outline:
                     style: lines
                     order: global.feature_order
-                    color: [0.400,0.608,0.831]
+                    color: [0.816,0.871,0.651]
                     width: [[7, 1px], [15, 1px], [16, 2px]]
 
         man-made:
@@ -805,7 +787,7 @@ layers:
                 outline:
                     style: lines
                     order: global.feature_order
-                    color: [0.400,0.608,0.831]
+                    color: [0.831,0.808,0.780]
                     width: [[7, 1px], [15, 1px], [16, 2px]]
 
         beach:
@@ -813,12 +795,12 @@ layers:
                 kind: beach
             draw:
                 polygons:
-                    color: [1.000,0.918,0.529]
+                    color: [0.949,0.898,0.776]
                     visible: true
                 outline:
                     style: lines
                     order: global.feature_order
-                    color: [0.400,0.608,0.831]
+                    color: [0.961,0.839,0.631]
                     width: [[7, 1px], [15, 1px], [16, 2px]]
 
         garden:
@@ -826,24 +808,24 @@ layers:
                 kind: garden
             draw:
                 polygons:
-                    color: [0.553,0.839,0.608]
+                    color: [0.875,0.918,0.792]
                     visible: true
                 outline:
                     style: lines
                     order: global.feature_order
-                    color: [0.400,0.608,0.831]
+                    color: [0.761,0.831,0.631]
                     width: [[7, 1px], [15, 1px], [16, 2px]]
 
         pitch:
             filter: { kind: pitch }
             draw:
                 polygons:
-                    color: global.lightest_color
+                    color: [0.933,0.925,0.843]
                     visible: true
                 outline:
                     style: lines
                     order: global.feature_order
-                    color: [0.859,0.776,0.686]
+                    color: [0.855,0.843,0.749]
                     width: [[14, 0px], [15, 1px], [18, 2px]]
 
         school:
@@ -851,38 +833,12 @@ layers:
                 kind: school
             draw:
                 polygons:
-                    color: [0.984,0.969,0.796]
+                    color: [0.957,0.941,0.835]
                     visible: true
                 outline:
                     style: lines
                     order: global.feature_order
-                    color: [0.400,0.608,0.831]
-                    width: [[7, 1px], [15, 1px], [16, 2px]]
-
-        glacier:
-            filter:
-                kind: glacier
-            draw:
-                polygons:
-                    color: [1.000,1.000,1.000]
-                    visible: true
-                outline:
-                    style: lines
-                    order: global.feature_order
-                    color: [0.400,0.608,0.831]
-                    width: [[7, 1px], [15, 1px], [16, 2px]]
-
-        military:
-            filter:
-                kind: military
-            draw:
-                polygons:
-                    color: [0.914,0.922,0.925]
-                    visible: true
-                outline:
-                    style: lines
-                    order: global.feature_order
-                    color: [0.400,0.608,0.831]
+                    color: [0.922,0.878,0.698]
                     width: [[7, 1px], [15, 1px], [16, 2px]]
 
         runway:
@@ -908,10 +864,10 @@ layers:
                 country-outerline:
                     style: lines
                     order: function() { return (feature.sort_rank -1); }
-                    color: [0.725,0.765,0.780]
+                    color: [0.773,0.808,0.820]
                     width: [[0, 0px], [4, 2px], [8, 6px], [14, 8px], [17, 16m]]
                 lines:
-                    color: [0.725,0.765,0.780]
+                    color: [0.773,0.808,0.820]
                     width: [[0, 0px], [5, 0px], [6, 1px], [14, 15px]]
             water:
                 filter: { maritime_boundary: true }
@@ -947,7 +903,7 @@ layers:
                 lines:
                     dash: [1.25, 1.25]
                     order: global.feature_order
-                    color: [0.725,0.765,0.780]
+                    color: [0.773,0.808,0.820]
                     width: [[1,0.2px],[9,1.5px],[17,10m]]
             disputed:
                 filter: { kind: [disputed, line_of_control] }
@@ -955,7 +911,7 @@ layers:
                     lines:
                         dash: [2.0, 1.0]
                         order: global.feature_order
-                        color: [0.725,0.765,0.780]
+                        color: [0.773,0.808,0.820]
                         width: [[1, 1px], [9, 4px], [17,14m]]
 
         region:
@@ -965,7 +921,7 @@ layers:
                     - kind_detail: [3,4]
             draw:
                 lines:
-                    color: [0.725,0.765,0.780]
+                    color: [0.812,0.839,0.831]
                     # width: [[0, 0.5px], [9, 2px], [14, 4px], [16, 6.5px], [17, 16m]]
                     width: [[0, 0.5px], [14, 3px], [16, 7px], [17, 17m]]
 
@@ -1035,7 +991,7 @@ layers:
                     text_source: global.ux_language_text_source
                     font:
                         fill: [0.650,0.650,0.650]
-                        stroke: { color: [0.957,0.969,0.976], width: 4px }
+                        stroke: { color: [0.957,0.945,0.929], width: 4px }
             country-z2-3:
                 filter:
                     $zoom: [2,3]
@@ -1143,7 +1099,7 @@ layers:
                         size: 11px
                         weight: normal
                         fill: [0.700,0.700,0.700]
-                        stroke: { color: [0.957,0.969,0.976], width: 4px }
+                        stroke: { color: [0.957,0.945,0.929], width: 4px }
             region-z4:
                 filter:
                     $zoom: [4]
@@ -1222,7 +1178,7 @@ layers:
                     buffer: 42px
                     font:
                         size: [[5,9px],[8,10px],[12,11px]]
-                        stroke: { color: [0.957,0.969,0.976], width: 5px }
+                        stroke: { color: [0.957,0.945,0.929], width: 5px }
 
             # _text_early:
             #     filter: { $zoom: { max: 11 } }
@@ -1388,7 +1344,7 @@ layers:
                         size: [[11, 9px], [12, 10px], [13, 12px], [14, 16px], [16, 24px]]
                         weight: normal
                         transform: uppercase
-                        stroke: { color: [0.957,0.969,0.976], width: [[12, 4px], [13, 6px], [15, 8px]] }
+                        stroke: { color: [0.957,0.945,0.929], width: [[12, 4px], [13, 6px], [15, 8px]] }
 
             z13-up:
                 filter:
