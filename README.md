@@ -1,6 +1,6 @@
-### xyz studio miami day map
+### xyz studio spring soft map
 
-View the [xyz studio miami day map](https://sensescape.github.io/xyz-studio-miami-day/#12/37.7823/-122.4274).
+View the [xyz studio spring soft map](https://sensescape.github.io/xyz-studio-spring-soft/).
 
 [https://explore.xyz.here.com](https://explore.xyz.here.com)
 
