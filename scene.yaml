@@ -32,7 +32,7 @@ global:
     roads_text_fill:              [0.600,0.600,0.600]
     roads_text_stroke:            [0.957,0.945,0.929]
 
-    text_font_family: 'Orbitron'
+    text_font_family: 'Open Sans'
 
     #ux/ui
     ux_language: false             # l10n language code, trusting OSM in v0.10 tiles, fixed in v1.0 tiles
@@ -172,20 +172,21 @@ global:
 
 # Fonts
 fonts:
-    Orbitron:
+    Open Sans:
+        - weight: 300 # Light
+          url: fonts/OpenSans-Light.woff
         - weight: normal # Regular
-          # url: https://fonts.gstatic.com/s/orbitron/v7/94ug0rEgQO_WuI_xKJMFc3YhjbSpvc47ee6xR_80Hnw.woff
-          url: fonts/94ug0rEgQO_WuI_xKJMFc3YhjbSpvc47ee6xR_80Hnw.woff
-
-    Cairo:
+          url: fonts/OpenSans-Regular.woff
         - weight: normal # Regular
-          # url: https://fonts.gstatic.com/s/cairo/v1/ZA_4ooaF_Dfdn26t_IoQOaCWcynf_cDxXwCLxiixG1c.woff
-          url: fonts/ZA_4ooaF_Dfdn26t_IoQOaCWcynf_cDxXwCLxiixG1c.woff
-
-    Aldrich:
-        - weight: normal # Regular
-          # url: https://fonts.gstatic.com/s/aldrich/v6/VWXaIPGrUapL_Y2vGs0lKALUuEpTyoUstqEm5AMlJo4.woff
-          url: fonts/VWXaIPGrUapL_Y2vGs0lKALUuEpTyoUstqEm5AMlJo4.woff
+          style: italic
+          url: fonts/OpenSans-Italic.woff
+        - weight: 600 # Semi Bold
+          url: fonts/OpenSans-Semibold.woff
+        - weight: 600 # Semi Bold
+          style: italic
+          url: fonts/OpenSans-SemiboldItalic.woff
+        - weight: bold
+          url: fonts/OpenSans-Bold.woff
 
 
 scene:
@@ -365,7 +366,7 @@ layers:
                 text_source: global.ux_language_text_source
                 visible: false    # labels are enabled by each layer below
                 font:
-                    family: Cairo
+                    family: global.text_font_family
                     weight: normal
                     fill: global.roads_text_fill
 
@@ -420,7 +421,7 @@ layers:
                         text_source: global.ux_language_text_source
                         visible: true
                         font:
-                            family: Aldrich
+                            weight: 600
                             size: [[15,12px],[20,14px]]
                             stroke: { color: global.roads_text_stroke, width: 6px }
 
@@ -450,7 +451,7 @@ layers:
                                 visible: true
                                 text_source: global.ux_language_text_source_road_ref_and_name
                                 font:
-                                    family: Aldrich
+                                    weight: 600
                                     size: [[15,12px],[20,14px]]
                                     stroke: { color: global.roads_text_stroke, width: 4px }
                 labels-trunk-primary-z14:
@@ -500,6 +501,7 @@ layers:
                                 visible: true
                                 text_source: global.ux_language_text_source_road_ref_and_name_short
                                 font:
+                                    weight: 600
                                     size: [[13,10px],[15,13px],[18,14px]]
                                     stroke: { color: global.roads_text_stroke, width: 4px }
                 labels-secondary:
@@ -1010,6 +1012,7 @@ layers:
                     text_source: global.ux_language_text_source
                     font:
                         fill: [0.650,0.650,0.650]
+                        weight: 600
                         stroke: { color: [0.957,0.945,0.929], width: 4px }
             country-z2-3:
                 filter:
